@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const router = require("./routes");
+const routes = require("./routes");
 
 // MongoDB settings using mongoose
 const db = mongoose.connection;
@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Router settings
-app.use("/", router);
+app.use("/", routes);
 
 // Server settings
 const port = process.env.PORT || 3000;
